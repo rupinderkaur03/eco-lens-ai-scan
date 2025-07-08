@@ -1,13 +1,29 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Share2, Lightbulb, Recycle, Award, ChevronRight } from "lucide-react";
+import { Share2, Lightbulb, Recycle, Award, ChevronRight, Tag, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { toast } from "@/hooks/use-toast";
 import EcoScoreBar from "@/components/EcoScoreBar";
 
 const ResultPage = () => {
   const [showTips, setShowTips] = useState(false);
+  const [showCategorySelection, setShowCategorySelection] = useState(true); // Show if no category assigned
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [categorySubmitted, setCategorySubmitted] = useState(false);
+
+  const recyclingCategories = [
+    { value: "plastic-bottles", label: "Plastic Bottles & Containers" },
+    { value: "paper-cardboard", label: "Paper & Cardboard" },
+    { value: "glass", label: "Glass Containers" },
+    { value: "metal-cans", label: "Metal Cans & Foil" },
+    { value: "mixed-packaging", label: "Mixed Packaging Materials" },
+    { value: "biodegradable", label: "Biodegradable/Compostable" },
+    { value: "electronic", label: "Electronic Waste" },
+    { value: "hazardous", label: "Hazardous Materials" },
+  ];
 
   const tips = [
     {
@@ -27,6 +43,27 @@ const ResultPage = () => {
     }
   ];
 
+  const handleCategorySubmit = () => {
+    if (!selectedCategory) {
+      toast({
+        title: "Please select a category",
+        description: "Choose the most appropriate recycling category for this product.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setCategorySubmitted(true);
+    setShowCategorySelection(false);
+    
+    const categoryLabel = recyclingCategories.find(cat => cat.value === selectedCategory)?.label;
+    
+    toast({
+      title: "Category assigned successfully!",
+      description: `This product has been categorized as: ${categoryLabel}`,
+    });
+  };
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-2xl">
       {/* Header */}
@@ -45,6 +82,64 @@ const ResultPage = () => {
           />
         </CardContent>
       </Card>
+
+      {/* Category Suggestion Section */}
+      {showCategorySelection && (
+        <Card className="mb-6 border-blue-200 bg-blue-50">
+          <CardHeader>
+            <CardTitle className="flex items-center text-blue-800">
+              <Tag className="h-5 w-5 text-blue-600 mr-2" />
+              Help Us Categorize This Product
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-blue-700 text-sm">
+              We couldn't automatically detect a recycling category for this product. 
+              Please help us by selecting the most appropriate category:
+            </p>
+            
+            <div className="space-y-3">
+              <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select recycling category..." />
+                </SelectTrigger>
+                <SelectContent>
+                  {recyclingCategories.map((category) => (
+                    <SelectItem key={category.value} value={category.value}>
+                      {category.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              
+              <Button 
+                onClick={handleCategorySubmit}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+              >
+                <Check className="h-4 w-4 mr-2" />
+                Assign Category
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Category Confirmation */}
+      {categorySubmitted && (
+        <Card className="mb-6 border-green-200 bg-green-50">
+          <CardContent className="p-4">
+            <div className="flex items-center text-green-800">
+              <Check className="h-5 w-5 text-green-600 mr-2" />
+              <span className="font-medium">
+                Category assigned: {recyclingCategories.find(cat => cat.value === selectedCategory)?.label}
+              </span>
+            </div>
+            <p className="text-green-700 text-sm mt-1">
+              Thank you for helping improve our database!
+            </p>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Eco Score */}
       <Card className="mb-6">
