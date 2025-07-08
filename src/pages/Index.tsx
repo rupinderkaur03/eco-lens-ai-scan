@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Camera, Leaf, Users, Award, TrendingUp, Recycle } from "lucide-react";
+import { Camera, Leaf, Users, Award, TrendingUp, Recycle, TreePine, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -37,15 +37,24 @@ const Index = () => {
       {/* Hero Section */}
       <div className="text-center mb-16">
         <div className="mb-8">
-          <Leaf className="h-16 w-16 text-green-600 mx-auto mb-4" />
+          {/* Enhanced Hero Logo */}
+          <div className="relative inline-block mb-4">
+            <div className="absolute -inset-4 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
+            <div className="relative flex items-center justify-center">
+              <Leaf className="h-20 w-20 text-green-600 transform hover:rotate-12 transition-transform duration-500" />
+              <TreePine className="h-12 w-12 text-emerald-700 absolute -top-2 -right-2" />
+              <Sparkles className="h-6 w-6 text-green-500 absolute -bottom-2 -left-2 animate-bounce-gentle" />
+            </div>
+          </div>
+          
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
               EcoLens
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            AI-powered sustainability platform that helps you understand packaging impact, 
-            find better alternatives, and gamify eco-actions
+          <p className="text-lg text-green-600/80 font-medium mb-2">AI-Powered Sustainability Platform</p>
+          <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+            Understand packaging impact, find better alternatives, and gamify eco-actions for a sustainable future
           </p>
           <Link to="/scan">
             <Button size="lg" className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
@@ -62,7 +71,7 @@ const Index = () => {
           const Icon = feature.icon;
           return (
             <Link key={index} to={feature.link}>
-              <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white/70 backdrop-blur-sm border-green-100">
+              <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white/80 backdrop-blur-sm border-green-100/50">
                 <CardContent className="p-6 text-center">
                   <Icon className="h-12 w-12 text-green-600 mx-auto mb-4" />
                   <h3 className="text-lg font-semibold mb-2 text-gray-800">{feature.title}</h3>
@@ -75,7 +84,7 @@ const Index = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 mb-16 border border-green-100">
+      <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 mb-16 border border-green-100/50 shadow-sm">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-800">
           Making Impact Together
         </h2>
@@ -109,12 +118,12 @@ const Index = () => {
         </p>
         <div className="space-x-4">
           <Link to="/scan">
-            <Button size="lg" className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-xl">
+            <Button size="lg" className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
               Start Scanning
             </Button>
           </Link>
           <Link to="/profile">
-            <Button variant="outline" size="lg" className="border-green-300 text-green-700 hover:bg-green-50 px-6 py-3 rounded-xl">
+            <Button variant="outline" size="lg" className="border-green-300 text-green-700 hover:bg-green-50/80 px-6 py-3 rounded-xl backdrop-blur-sm">
               View Profile
             </Button>
           </Link>
