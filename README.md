@@ -1,73 +1,57 @@
-# Welcome to your Lovable project
+# EcoLens: AI-Powered Sustainability Platform
 
-## Project info
+EcoLens is a web application that empowers users to make sustainable choices by leveraging AI to analyze product packaging, provide instant eco-scores, suggest eco-friendly alternatives, and foster a community of environmentally conscious individuals.
 
-**URL**: https://lovable.dev/projects/c492d21d-266a-40ef-8407-d17d433e1a6f
+## Features
 
-## How can I edit this code?
+- **Smart Scanning**: Instantly analyze product packaging using AI-powered image recognition. Upload or scan a photo to receive an eco-safety score.
+- **Eco Scores**: Get a detailed breakdown of the environmental impact of packaging, including recyclability, biodegradability, carbon footprint, and material safety.
+- **Better Alternatives**: Discover and search for eco-friendly product options across categories like food, personal care, household, and packaging materials.
+- **Community Feed**: Share your sustainable actions, view others' eco-friendly initiatives, and earn points for making a positive impact.
+- **Rewards & Gamification**: Track your eco-points, view stats, and get inspired to take more sustainable actions.
 
-There are several ways of editing your application.
+## Getting Started
 
-**Use Lovable**
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c492d21d-266a-40ef-8407-d17d433e1a6f) and start prompting.
+### Installation
 
-Changes made via Lovable will be committed automatically to this repo.
+1. **Clone the repository:**
+   ```sh
+   git clone <YOUR_GIT_URL>
+   cd eco-lens-ai-scan
+   ```
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+3. **Start the development server:**
+   ```sh
+   npm run dev
+   ```
+4. Open your browser and visit [http://localhost:5173](http://localhost:5173) to use EcoLens locally.
 
-**Use your preferred IDE**
+## Tech Stack
+- **Vite** – Fast build tool for modern web projects
+- **React** – UI library for building interactive interfaces
+- **TypeScript** – Typed JavaScript for safer code
+- **shadcn/ui** – Accessible, customizable UI components
+- **Tailwind CSS** – Utility-first CSS framework
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Project Structure
+- `src/pages/` – Main application pages (Scan, Results, Recommendations, Community, etc.)
+- `src/components/` – Reusable UI components
+- `src/hooks/` – Custom React hooks
+- `src/lib/` – Utility functions
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
-Follow these steps:
+## License
+[MIT](LICENSE)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/c492d21d-266a-40ef-8407-d17d433e1a6f) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+*Empower your eco-journey with EcoLens: Scan, learn, act, and inspire others for a greener tomorrow!*
