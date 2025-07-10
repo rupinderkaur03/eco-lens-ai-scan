@@ -51,7 +51,3 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ## License
 [MIT](LICENSE)
-
----
-
-*Empower your eco-journey with EcoLens: Scan, learn, act, and inspire others for a greener tomorrow!*
