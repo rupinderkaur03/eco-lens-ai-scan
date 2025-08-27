@@ -10,6 +10,9 @@ EcoLens is a web application that empowers users to make sustainable choices by 
 - **Community Feed**: Share your sustainable actions, view others' eco-friendly initiatives, and earn points for making a positive impact.
 - **Rewards & Gamification**: Track your eco-points, view stats, and get inspired to take more sustainable actions.
 
+## Live Demo  
+🌍 [EcoLens Deployed Application](https://eco-lens1.netlify.app/)
+
 ## Getting Started
 
 ### Prerequisites
@@ -22,32 +25,3 @@ EcoLens is a web application that empowers users to make sustainable choices by 
    ```sh
    git clone <YOUR_GIT_URL>
    cd eco-lens-ai-scan
-   ```
-2. **Install dependencies:**
-   ```sh
-   npm install
-   ```
-3. **Start the development server:**
-   ```sh
-   npm run dev
-   ```
-4. Open your browser and visit [http://localhost:5173](http://localhost:5173) to use EcoLens locally.
-
-## Tech Stack
-- **Vite** – Fast build tool for modern web projects
-- **React** – UI library for building interactive interfaces
-- **TypeScript** – Typed JavaScript for safer code
-- **shadcn/ui** – Accessible, customizable UI components
-- **Tailwind CSS** – Utility-first CSS framework
-
-## Project Structure
-- `src/pages/` – Main application pages (Scan, Results, Recommendations, Community, etc.)
-- `src/components/` – Reusable UI components
-- `src/hooks/` – Custom React hooks
-- `src/lib/` – Utility functions
-
-## Contributing
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-[MIT](LICENSE)
